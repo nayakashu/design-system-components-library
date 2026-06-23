@@ -5,12 +5,20 @@ import dts from "vite-plugin-dts";
 
 const entry = fileURLToPath(new URL("src/index.ts", import.meta.url));
 
+// The dts plugin generates library declaration files. It must not run during
+// the Storybook build, which produces no dist/index.d.ts for api-extractor.
+// The build-storybook script sets BUILD_TARGET=storybook so this gate is
+// deterministic rather than relying on a Storybook-internal env var.
+const isStorybook = process.env.BUILD_TARGET === "storybook";
+
 // Library build config. Test config lives in vitest.config.ts so the two type
 // surfaces stay separate.
 export default defineConfig({
   plugins: [
     react(),
-    dts({ rollupTypes: true, tsconfigPath: "./tsconfig.json" }),
+    ...(isStorybook
+      ? []
+      : [dts({ rollupTypes: true, tsconfigPath: "./tsconfig.json" })]),
   ],
   build: {
     lib: {

@@ -28,8 +28,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "BUILD_TARGET=storybook storybook dev -p 6006",
+    "build-storybook": "BUILD_TARGET=storybook storybook build"
   },
   "peerDependencies": {
     "react": "^19.0.0",

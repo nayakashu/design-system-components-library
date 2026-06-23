@@ -1,0 +1,60 @@
+{
+  "name": "@nayakashu/design-system-components-library",
+  "private": false,
+  "version": "1.0.0",
+  "description": "A design-system component library with a role-named token layer and a versioned library-to-consumer contract.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Ashutosh Nayak",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nayakashu/design-system-components-library.git"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.4.0",
+    "@storybook/addon-essentials": "^8.4.0",
+    "@storybook/react-vite": "^8.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "storybook": "^8.4.0",
+    "styled-components": "^6.1.13",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.5",
+    "vite-plugin-dts": "^4.4.0",
+    "vitest": "^3.0.0"
+  }
+}
